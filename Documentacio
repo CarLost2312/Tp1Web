@@ -1,0 +1,172 @@
+Observaciones sobre el archivo index.html
+Estructura General
+Estructura básica HTML5: El documento comienza correctamente con <!DOCTYPE html> y la etiqueta <html lang="es"> para definir el idioma.
+<head>
+Meta etiquetas:
+charset="UTF-8" asegura compatibilidad con caracteres latinos.
+viewport hace que la página sea responsive en dispositivos móviles.
+Título del sitio:
+<title>Gimnasio PowerFit</title> establece el nombre del sitio en la pestaña del navegador.
+
+Estilos externos:
+Se vincula un archivo de estilos local (estilos.css).
+Se incluye la CDN de Font Awesome para usar íconos en redes sociales.
+<body> y <header>
+  
+Logo:
+Dentro del <header>, el logo del gimnasio está implementado como un enlace que redirige al inicio (index.html).
+El texto "PowerFit" es estilizado como identidad del sitio.
+
+
+Navegación Principal:
+Menú de navegación con enlaces a secciones como Contacto.
+Se implementa un mega menú para "Servicios" usando un checkbox oculto. Esto permite un menú desplegable sin JavaScript.
+Secciones dentro del mega menú: Clases, Entrenadores, Precios, Blog.
+
+Botón para cambiar el tema visual:
+Se incluye un botón con id="boton-tema" para cambiar entre temas claro y oscuro. La funcionalidad se gestiona con JavaScript al final del archivo.
+
+Sección hero
+Video de fondo:
+Se usa la etiqueta <video> con autoplay, muted, loop y playsinline para mostrar un video de fondo de forma continua y silenciosa.
+El video tiene una clase video-fondo para estilos.
+Texto superpuesto con animación usando la clase overlay.
+
+Sección de Clases
+Título: Clases Destacadas.
+Contenedor de tarjetas (contenedor-cards) que muestra tres clases populares:
+Crossfit
+Yoga
+Spinning
+Cada tarjeta incluye una imagen, título y descripción.
+
+Sección del Contador
+Esta sección muestra estadísticas animadas:
+500+ Socios
+20 Clases Semanales
+15 Entrenadores Expertos
+Los números están envueltos en elementos con clase numero-animado, posiblemente animados con CSS o JS (aunque no se ve el script acá).
+
+Sección de Testimonios
+Carrusel simple con testimonios de tres clientes.
+Cada testimonio está dentro de un div.slide, mostrando la cita y el autor.
+
+<footer>
+Newsletter / Contacto:
+Llamado a la acción para ir a la página de contacto mediante un botón.
+Redes sociales:
+Íconos con enlaces simulados a Facebook, Instagram y Twitter (usando Font Awesome).
+Mapa de ubicación:
+Muestra un mapa de OpenStreetMap embebido en un iframe.
+Copyright
+Línea final con derechos reservados.
+
+Observaciones sobre el archivo clases.html
+La página “Clases” ofrece una vista atractiva y funcional de las actividades que el gimnasio ofrece a sus usuarios. Aporta interactividad y organización visual con los siguientes recursos:
+
+Filtro por tipo de clase (solo con HTML y CSS)
+Se implementó un sistema de filtrado completamente sin JavaScript, utilizando etiquetas <input type="radio"> combinadas con label y reglas CSS. Esto permite al usuario visualizar únicamente las clases que desea sin recargar la página, brindando una experiencia fluida y eficiente.
+Las categorías disponibles son: Todos, Musculación, Crossfit, Yoga y Spinning.
+
+Cada clase tiene una tarjeta (.card) asociada a una categoría (.musculacion, .crossfit, etc.), y el CSS oculta o muestra las tarjetas según el filtro seleccionado.
+
+Galería tipo Masonry
+Las clases están organizadas en una cuadrícula fluida usando CSS Grid con estilo masonry, permitiendo una visualización moderna, adaptable y estética de las imágenes y nombres de cada clase.
+
+Tarjetas con efecto hover
+Cada tarjeta de clase incluye:
+Imagen representativa.
+Nombre de la actividad en una sección superpuesta (.info), que puede incluir efectos visuales al pasar el cursor.
+Este diseño mejora la experiencia visual, haciendo que cada opción sea fácil de identificar y atractiva.
+
+Footer reutilizado
+
+Observaciones sobre el archivo entrenadores.html
+La página de “Entrenadores” presenta al equipo profesional del gimnasio de una forma visual, interactiva y moderna. Su propósito es acercar al usuario a los instructores, mostrando sus especialidades, habilidades destacadas y permitiendo que el visitante valore su desempeño mediante un sistema de calificación.
+
+Elementos visuales destacados Tarjetas Flip Card
+Cada entrenador se presenta en una tarjeta que se puede girar al pasar el cursor (efecto hover flip), permitiendo mostrar más información sin recargar visualmente la página.
+Estas tarjetas incluyen:
+Frente: Foto del entrenador y su nombre.
+Dorso: Especialidad, habilidades (con barras de progreso) y sistema de calificación.
+Este diseño mejora la interacción con el usuario, fomentando la exploración del contenido.
+
+Barras de habilidades animadas
+Cada entrenador muestra sus principales habilidades: fuerza y flexibilidad. Se representa visualmente con barras de progreso (div.progreso) que permiten al usuario comparar las capacidades de cada instructor fácilmente.
+
+Sistema de calificación
+Se implementó un sistema de estrellas seleccionables usando solo HTML y CSS (input radio + label) para que los usuarios puedan valorar a los entrenadores.
+Cada conjunto de estrellas es independiente y está asociado a un entrenador (por ejemplo: rating1, rating2, etc.).
+
+Diseño responsivo y accesibilidad
+Diseño adaptable: Las tarjetas están contenidas en un div.card-container que permite una organización fluida y adaptable a distintos tamaños de pantalla.
+Contraste y legibilidad: Se aplica el modo oscuro por defecto (body.modo-oscuro), que mejora el confort visual en pantallas durante la noche.
+Textos alternativos (alt): Cada imagen de entrenador incluye una descripción alternativa, favoreciendo la accesibilidad.
+
+Footer reutilizado
+
+Observaciones sobre el archivo precios.html
+
+La página de precios del sitio PowerFit presenta de manera clara y atractiva los distintos planes de suscripción que ofrece el gimnasio. Su objetivo principal es permitir a los usuarios comparar las características y precios de cada plan disponible.
+
+Estructura General
+Sección de Planes:
+Título llamativo: “Compará nuestros Planes”.
+Incluye un toggle de precios mensual/anual, que cambia dinámicamente los valores mostrados para cada plan.
+Tres planes principales:
+Básico: acceso libre al gimnasio y sala de musculación.
+Premium: incluye clases ilimitadas, sauna y piscina.
+Elite: entrenador personal y seguimiento físico mensual.
+Cada plan tiene su propio botón de selección y usa data-* attributes para almacenar los precios, facilitando la manipulación vía JavaScript (en el CSS o script externo se puede manejar la lógica de cambio de precios).
+
+Observaciones sobre el archivo blog.html
+Filtros por categoría (Blog interactivo)
+Se implementó un sistema de filtros por categoría usando únicamente HTML y CSS (input radio + label), lo que permite al usuario navegar entre los artículos disponibles según su interés:
+
+Categorías disponibles: Todos, Nutrición, Entrenamiento y Motivación.
+Cada botón está vinculado a un tipo de contenido y, con un pequeño ajuste en CSS o JavaScript, los artículos pueden ocultarse o mostrarse dinámicamente.
+Este enfoque promueve una navegación intuitiva y no recarga la página.
+animación al visualizar publicaciones
+Se utilizó la API de IntersectionObserver para crear una animación de aparición en las tarjetas del blog cuando el usuario hace scroll
+Al entrar en la zona visible del viewport, las tarjetas .post reciben la clase visible, activando su animación.
+Este efecto mejora la estética general del sitio y llama la atención sobre el contenido nuevo o relevante.
+
+Comentarios estilizados
+Al final del blog, se integró una sección de comentarios públicos que imita un sistema real:
+Cada comentario incluye un avatar, el nombre del usuario y el texto del mensaje.
+La estructura en div.comentario permite adaptarse fácilmente a distintos tamaños de pantalla o integrar nuevos comentarios dinámicamente.
+
+Diseño responsivo y accesibilidad
+Diseño fluido: La grilla de publicaciones (.grid-blog) se adapta correctamente a distintos tamaños de pantalla, manteniendo una buena legibilidad y distribución.
+Contraste visual adecuado: El modo oscuro favorece la lectura nocturna, con texto claro sobre fondo oscuro.
+Estructura semántica bien aplicada: Uso correcto de <section>, <article>, <h2>, etc., lo que favorece el SEO y la accesibilidad.
+
+Observaciones sobre el archivo cotacto.html
+Elementos visuales destacados
+Formulario validado y responsivo
+El formulario de contacto está construido con buena estructura y validación básica desde HTML:
+Cada campo (nombre, email, mensaje) utiliza atributos como required, pattern y minlength para evitar envíos incompletos.
+Los placeholder ayudan a guiar al usuario sobre qué tipo de información ingresar.
+Está envuelto en un fieldset con legend, lo que mejora la accesibilidad y la semántica del formulario.
+Además, el botón de envío activa una ventana modal para confirmar que el mensaje fue enviado, sin necesidad de recargar la página. Esto mejora notablemente la experiencia del usuario.
+
+Modal de confirmación de envío
+Al enviar el formulario, se activa un modal (.modal) con un mensaje personalizado de éxito. Este modal:
+Se muestra dinámicamente al interceptar el evento submit mediante JavaScript.
+Se puede cerrar con un botón, permitiendo una interacción rápida sin recargar la página.
+Mejora la retroalimentación del sistema ante acciones del usuario.
+
+Modo oscuro/claro persistente
+Este sitio web implementa un botón de cambio de tema que alterna entre modo-oscuro y modo-claro. Características destacadas:
+Se almacena la preferencia del usuario en localStorage, por lo que se mantiene incluso al recargar o volver a visitar el sitio.
+Se modifica dinámicamente el texto e ícono del botón (🌙 Modo Oscuro / ☀️ Modo Claro), generando una experiencia visual coherente.
+La clase correspondiente se aplica al <body> (modo-claro o modo-oscuro), permitiendo un control global desde CSS.
+
+Footer completo y reutilizable
+El pie de página contiene múltiples bloques con funciones prácticas:
+Botón al formulario de contacto, útil en todas las páginas del sitio.
+Redes sociales con íconos de Font Awesome visibles y accesibles.
+Mapa embebido con OpenStreetMap optimizado con loading="lazy" para mejor rendimiento.
+
+
+y por ultimo en toda las paginas se aplico el scroll snap.
