@@ -1,0 +1,479 @@
+:root {
+  --color-principal: #ff0000;
+    --color-claro: rgb(226, 226, 226);
+    --color-oscuro: #0b0b0b;
+  
+}
+.modo-oscuro {
+  background-color: var(--color-oscuro) !important;
+ color: var(--color-claro) !important;
+}
+ body.modo-oscuro .navegacion a,
+body.modo-oscuro .label-mega,
+body.modo-oscuro .menu-columna ul li a {
+  color: rgb(0, 0, 0);
+}
+body.modo-oscuro .boton-tema {
+  color:#0b0b0b;
+}
+body.modo-oscuro .logo a {
+  color:#0b0b0b;
+}
+
+
+
+.modo-claro {
+  background-color: var(--color-claro) !important; 
+  color: var(--color-oscuro) !important;
+}
+  body.modo-claro .navegacion a,
+body.modo-claro .label-mega,
+body.modo-claro .menu-columna ul li a {
+
+  color: rgb(255, 255, 255);
+
+}
+body.modo-claro .contenedor-blog label {
+  color: #f7f7f7;
+}
+body.modo-claro .boton-tema {
+  color: #ffffff;
+  background-color: black;
+}
+body.modo-claro .logo a {
+  color:#ffffff;
+}
+
+html {
+scroll-snap-type: y proximity;  
+}
+
+section {
+  scroll-snap-align: center;
+  height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f7f7f7;
+    
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  background-color: #990707 !important; 
+  
+}
+
+.logo a {
+  font-size: 1.8rem;
+  margin: 0;
+  text-decoration: none;
+  color: var(--color-claro);
+  padding-inline: 1rem;
+}
+
+.navegacion {
+  display: flex; /* Usamos flexbox para alinear la navegación y el botón */
+  align-items: center; /* Alineación vertical al centro */
+}
+
+.navegacion ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.navegacion a {
+  color: var(--color-oscuro);
+  text-decoration: none;
+  position: relative;
+  list-style: none;
+}
+
+.has-mega-menu {
+  position: relative;
+}
+
+.toggle-mega {
+  display: none;
+}
+
+.label-mega {
+  color :#990707 ;
+}
+.navegacion a
+.boton-tema{
+  display: flex;
+  align-items: center;
+  height: 100%;         /* Asegura que usen el alto del nav */
+  padding: 0.5rem 1rem; /* Uniforme para todos */
+}
+
+/* Ocultar el mega menú por defecto */
+.mega-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  
+  padding: 2rem;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  gap: 2rem;
+  flex-wrap: wrap;
+ 
+  justify-content: space-between;
+}
+
+/* Mostrar el mega menú si el checkbox está activado */
+.toggle-mega:checked ~ .mega-menu {
+  display: flex;
+}
+
+.menu-columna {
+  flex: 1;
+}
+
+.menu-columna ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-columna ul li {
+  margin-bottom: 0.3rem;
+}
+
+.menu-columna ul li a {
+  color:#990707 ;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.menu-columna ul li a:hover {
+  color:#990707 ;
+}
+
+/* Estilos para el botón de tema */
+.boton-tema {
+  padding: 0.5rem 1rem;
+  
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 2rem; /* Espacio entre la navegación y el botón */
+}
+
+/* Media query para responsividad */
+@media (max-width: 768px) {
+  header {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .navegacion {
+      flex-direction: column;
+      width: 100%;
+      align-items: flex-start; /* Alinea los elementos a la izquierda en pantallas pequeñas */
+      margin-top: 1rem; /* Espacio entre el logo y la navegación en pantallas pequeñas */
+  }
+
+  .navegacion ul {
+      flex-direction: column;
+      width: 100%;
+  }
+
+  .navegacion li {
+      padding-top: 1rem;
+  }
+
+  .logo a {
+      padding-inline: 0;
+  }
+
+  .boton-tema {
+      margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+      margin-top: 1rem; /* Espacio entre la navegación y el botón en pantallas pequeñas */
+  }
+}
+
+/* Ocultamos por defecto el mega menú */
+.mega-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #990707 ;
+  padding: 2rem;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Cuando el checkbox está chequeado, mostramos el menú */
+.toggle-mega:checked ~ .mega-menu {
+  display: flex;
+}
+
+
+
+
+
+.blog {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.blog h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Newspaper-style Grid */
+.grid-blog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.post {
+  
+  border-left: 4px solid #990707;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: reveal 0.6s ease forwards;
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.contenedor-blog {
+text-align: center;
+}
+
+/* Estilo de botones */
+.contenedor-blog label {
+    text-align: center;
+    display: inline-block;
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #990707 ;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  input[type="radio"] {
+    display: none;
+    align-items: center;
+   
+  }
+  
+  input[type="radio"]:checked + .filtro-btn {
+    background: #990707;
+   
+  }
+  
+  /* Filtro funcional */
+  #nutricion:checked ~ .grid-blog .post:not(.nutricion),
+  #entrenamiento:checked ~ .grid-blog .post:not(.entrenamiento),
+  #motivacion:checked ~ .grid-blog .post:not(.motivacion) {
+    display: none;
+  }
+  
+  #todos:checked ~ .grid-blog .post {
+    display: block;
+  }
+
+
+/* Comentarios */
+.comentarios {
+  margin-top: 3rem;
+  
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid #990707;
+}
+
+.comentario {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #1428da, #6f8df7);
+  border-radius: 50%;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.avatar::before {
+  content: "👤";
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+}
+
+.texto strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  
+}
+
+/* Animaciones */
+.post:nth-child(1) { animation-delay: 0.1s; }
+.post:nth-child(2) { animation-delay: 0.3s; }
+.post:nth-child(3) { animation-delay: 0.5s; }
+.post:nth-child(4) { animation-delay: 0.7s; }
+
+
+
+.post {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.6s ease;
+  }
+  
+  .post.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .grid-blog .post:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+  .grid-blog .post:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  .grid-blog .post:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+  .grid-blog .post:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  header {
+    background-color: #111;
+    color: white;
+    padding: 1rem;
+}
+
+
+footer {
+        
+  padding: 3rem 1rem;
+  border: 1px solid #990707;
+}
+
+.footer-contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.newsletter h3,
+.redes-sociales h3,
+.mapa h3 {
+  margin-bottom: 1rem;
+}
+
+.newsletter input {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  width: 70%;
+  margin-right: 0.5rem;
+}
+
+.newsletter button {
+  padding: 0.5rem 1rem;
+  background-color: #d62828;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.iconos a img {
+  width: 32px;
+  margin: 0 0.5rem;
+  transition: transform 0.3s;
+}
+.iconos a:hover img {
+  transform: scale(1.2);
+}
+
+.mapa iframe {
+  border-radius: 8px;
+  border: none;
+}
+
+footer p {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  
+}
+.iconos a {
+  
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: transform 0.3s;
+  color: #da1414;
+}
+
+.iconos a:hover {
+  transform: scale(1.2);
+  color: #ff0000;
+}
+.boton-contacto-footer {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #d62828;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.boton-contacto-footer:hover {
+  background-color: #a91f1f;
+}
+.modo-oscuro {
+  background-color: var(--color-oscuro) !important;
+ color: var(--color-claro) !important;
+}
+.modo-claro {
+  background-color: var(--color-claro) !important; 
+  color: var(--color-oscuro) !important;
+}

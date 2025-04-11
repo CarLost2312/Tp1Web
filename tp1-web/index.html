@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gimnasio PowerFit</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="modo-oscuro">
+
+  <header>
+    <div class="logo">
+      <a href="index.html">PoweFit</a>
+    </div>
+  
+    <nav class="navegacion">
+      <ul>
+        <li class="has-mega-menu">
+          
+          <input type="checkbox" id="toggle-mega" class="toggle-mega">
+          
+          <label for="toggle-mega" class="label-mega">Servicios</label>
+  
+          
+          <div class="mega-menu">
+            <div class="menu-columna">
+              <a href="clases.html">Clases</a>
+            </div>
+            <div class="menu-columna">
+              <a href="entrenadores.html">Entrenadores</a>
+            </div>
+            <div class="menu-columna">
+              <a href="precios.html">Precios</a>
+            </div>
+            <div class="menu-columna">
+              <a href="blog.html">Blog</a>
+            </div>
+          </div>
+        </li>
+  
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+  
+      <button id="boton-tema" class="boton-tema">🌙 Modo Oscuro</button>
+    </nav>
+  </header>
+  
+
+  <section class="hero">
+
+    <video autoplay muted loop playsinline class="video-fondo">
+      <source src="videos/gym.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+
+    <div class="overlay">
+      <h2 class="texto-animado">Transformá tu cuerpo, cambiá tu vida</h2>
+    </div>
+  </section>
+ 
+
+    <section class="clases ">
+      <h2>Clases Destacadas</h2>
+      <div class="contenedor-cards">
+        <div class="card1">
+          <img src="img/crossfit.webp" alt="Clases de CrossFit">
+          <h3>Crossfit</h3>
+          <p>Entrenamientos de alta intensidad para llevar tu cuerpo al límite.</p>
+        </div>
+        <div class="card1">
+          <img src="img/yoga.avif" alt="Clases de Yoga">
+          <h3>Yoga</h3>
+          <p>Conectá tu cuerpo y mente en clases relajantes y energizantes</p>
+        </div>
+        <div class="card1">
+          <img src="img/spinning.jpg" alt="Clase de Spinning">
+          <h3>Spinning</h3>
+          <p>Pedaleá al ritmo de la música y quemá calorías al máximo.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="contador ">
+      <div class="contenedor-contador">
+        <div class="item-contador numero">
+
+          <span class="numero-animado">500+</span>
+          <p>Socios Satisfechos</p>
+        </div>
+        <div class="item-contador numero">
+          <span class="numero-animado">20</span>
+          <p>Clases Semanales</p>
+        </div>
+        <div class="item-contador numero">
+          <span class="numero-animado">15</span>
+          <p>Entrenadores Expertos</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonios ">
+      <h2>Testimonios</h2>
+      <div class="carrusel">
+        <div class="slide">
+          <p>"¡PowerFit me cambió la vida! Estoy en mi mejor forma física."</p>
+          <span>- Laura G.</span>
+        </div>
+        <div class="slide">
+          <p>"Entrenadores súper profesionales y clases divertidas."</p>
+          <span>- Marcos D.</span>
+        </div>
+        <div class="slide">
+          <p>"¡El mejor gimnasio de la ciudad! Recomiendo 100%."</p>
+          <span>- Carla T.</span>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+  <footer>
+    <div class="footer-contenedor">
+      <!-- Botón Contacto -->
+      <div class="newsletter">
+        <h3>¡Contáctenos!</h3>
+        <a href="contacto.html" class="boton-contacto-footer">Ir al formulario</a>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div class="redes-sociales">
+        <h3>Seguinos</h3>
+        <div class="iconos">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Mapa -->
+      <div class="mapa">
+        <h3>Encontranos</h3>
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-58.393%2C-34.603%2C-58.391%2C-34.602&layer=mapnik"
+          width="100%" height="150" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <p class="copyright">
+      © 2025 PowerFit Gym. Todos los derechos reservados.
+    </p>
+  </footer>
+
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const botonTema = document.getElementById("boton-tema");
+
+    // Cargar preferencia guardada
+    const temaGuardado = localStorage.getItem("tema") || "modo-claro";
+    body.classList.add(temaGuardado);
+    botonTema.textContent = temaGuardado === "modo-oscuro" ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+
+    // Cambiar tema al hacer clic
+    botonTema.addEventListener("click", () => {
+      if (body.classList.contains("modo-claro")) {
+        body.classList.replace("modo-claro", "modo-oscuro");
+        localStorage.setItem("tema", "modo-oscuro");
+        botonTema.textContent = "☀️ Modo Claro";
+      } else {
+        body.classList.replace("modo-oscuro", "modo-claro");
+        localStorage.setItem("tema", "modo-claro");
+        botonTema.textContent = "🌙 Modo Oscuro";
+      }
+    });
+  });
+</script>
+
+
+</html>

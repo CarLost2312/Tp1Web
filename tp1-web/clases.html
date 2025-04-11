@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clases</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="modo-oscuro">
+
+  <header>
+    <div class="logo">
+      <a href="index.html">PoweFit</a>
+    </div>
+
+    <nav class="navegacion">
+      <ul>
+        <li class="has-mega-menu">
+          <!-- Toggle checkbox oculto -->
+          <input type="checkbox" id="toggle-mega" class="toggle-mega">
+          <!-- Label que actúa como botón -->
+          <label for="toggle-mega" class="label-mega">Servicios</label>
+
+          <!-- Mega menú -->
+          <div class="mega-menu">
+            <div class="menu-columna">
+              <a href="clases.html">Clases</a>
+            </div>
+            <div class="menu-columna">
+              <a href="entrenadores.html">Entrenadores</a>
+            </div>
+            <div class="menu-columna">
+              <a href="precios.html">Precios</a>
+            </div>
+            <div class="menu-columna">
+              <a href="blog.html">Blog</a>
+            </div>
+          </div>
+        </li>
+
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+
+      <button id="boton-tema" class="boton-tema">🌙 Modo Oscuro</button>
+    </nav>
+  </header>
+
+
+
+
+
+
+  <main>
+    <section class="clases-filtro">
+      <h2>Nuestras Clases</h2>
+
+
+      <input type="radio" name="filtro" id="todos" checked>
+      <input type="radio" name="filtro" id="musculacion">
+      <input type="radio" name="filtro" id="crossfit">
+      <input type="radio" name="filtro" id="yoga">
+      <input type="radio" name="filtro" id="spinning">
+
+      <div class="filtros">
+        <label for="todos">Todos</label>
+        <label for="musculacion">Musculación</label>
+        <label for="crossfit">Crossfit</label>
+        <label for="yoga">Yoga</label>
+        <label for="spinning">Spinning</label>
+      </div>
+
+
+      <div class="galeria masonry">
+        <div class="card musculacion"><img src="img/musculacio.jpg" alt="">
+          <div class="info">Musculación</div>
+        </div>
+        <div class="card crossfit"><img src="img/crossfit.webp" alt="">
+          <div class="info">Crossfit</div>
+        </div>
+        <div class="card spinning"><img src="img/spinning.jpg" alt="">
+          <div class="info">Spinning</div>
+        </div>
+        <div class="card yoga"><img src="img/yoga.avif" alt="">
+          <div class="info">Yoga</div>
+        </div>
+        <!-- Agregá más imágenes según necesites -->
+      </div>
+    </section>
+
+  </main>
+
+  <section class="horarios">
+    <h2>Horarios Semanales</h2>
+    <div class="tabla-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Día</th>
+            <th>Clase</th>
+            <th>Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lunes</td>
+            <td>Musculación</td>
+            <td>9:00 - 10:00</td>
+          </tr>
+          <tr>
+            <td>Martes</td>
+            <td>Crossfit</td>
+            <td>18:00 - 19:00</td>
+          </tr>
+          <tr>
+            <td>Jueves</td>
+            <td>Yoga</td>
+            <td>21:00 - 22:30</td>
+          </tr>
+          <tr>
+            <td>Viernes</td>
+            <td>Spinning</td>
+            <td>10:00 - 12:00</td>
+          </tr>
+          <!-- Más filas -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+
+
+
+  <footer>
+    <div class="footer-contenedor">
+      <!-- Botón Contacto -->
+      <div class="newsletter">
+        <h3>¡Contáctenos!</h3>
+        <a href="contacto.html" class="boton-contacto-footer">Ir al formulario</a>
+      </div>
+
+      <!-- Redes Sociales -->
+      <div class="redes-sociales">
+        <h3>Seguinos</h3>
+        <div class="iconos">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+
+      <!-- Mapa -->
+      <div class="mapa">
+        <h3>Encontranos</h3>
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-58.393%2C-34.603%2C-58.391%2C-34.602&layer=mapnik"
+          width="100%" height="150" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+    <p class="copyright">
+      © 2025 PowerFit Gym. Todos los derechos reservados.
+    </p>
+  </footer>
+
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const botonTema = document.getElementById("boton-tema");
+
+    // Cargar preferencia guardada
+    const temaGuardado = localStorage.getItem("tema") || "modo-claro";
+    body.classList.add(temaGuardado);
+    botonTema.textContent = temaGuardado === "modo-oscuro" ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+
+    // Cambiar tema al hacer clic
+    botonTema.addEventListener("click", () => {
+      if (body.classList.contains("modo-claro")) {
+        body.classList.replace("modo-claro", "modo-oscuro");
+        localStorage.setItem("tema", "modo-oscuro");
+        botonTema.textContent = "☀️ Modo Claro";
+      } else {
+        body.classList.replace("modo-oscuro", "modo-claro");
+        localStorage.setItem("tema", "modo-claro");
+        botonTema.textContent = "🌙 Modo Oscuro";
+      }
+    });
+  });
+</script>
+
+</html>

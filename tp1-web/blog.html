@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="modo-oscuro">
+
+  <header>
+    <div class="logo">
+      <a href="index.html">PoweFit</a>
+    </div>
+  
+    <nav class="navegacion">
+      <ul>
+        <li class="has-mega-menu">
+          <!-- Toggle checkbox oculto -->
+          <input type="checkbox" id="toggle-mega" class="toggle-mega">
+          <!-- Label que actúa como botón -->
+          <label for="toggle-mega" class="label-mega">Servicios</label>
+  
+          <!-- Mega menú -->
+          <div class="mega-menu">
+            <div class="menu-columna">
+              <a href="clases.html">Clases</a>
+            </div>
+            <div class="menu-columna">
+              <a href="entrenadores.html">Entrenadores</a>
+            </div>
+            <div class="menu-columna">
+              <a href="precios.html">Precios</a>
+            </div>
+            <div class="menu-columna">
+              <a href="blog.html">Blog</a>
+            </div>
+          </div>
+        </li>
+  
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+  
+      <button id="boton-tema" class="boton-tema">🌙 Modo Oscuro</button>
+    </nav>
+  </header>
+  
+  
+
+    <section class="blog">
+        <h2>Blog de Fitness</h2>
+      
+        <div class="contenedor-blog">
+          <!-- Filtros -->
+        
+            <input type="radio" name="tag" id="todos" checked>
+            <label for="todos">Todos</label>
+      
+            <input type="radio" name="tag" id="nutricion">
+            <label for="nutricion">Nutrición</label>
+      
+            <input type="radio" name="tag" id="entrenamiento">
+            <label for="entrenamiento">Entrenamiento</label>
+      
+            <input type="radio" name="tag" id="motivacion">
+            <label for="motivacion">Motivación</label>
+          
+          <div class="grid-blog">
+            <article class="post nutricion">
+              <h3>Alimentación Pre y Post Entreno</h3>
+              <p>Consejos clave para tu rendimiento.</p>
+            </article>
+      
+            <article class="post entrenamiento">
+              <h3>Rutina Fullbody de 30 Minutos</h3>
+              <p>Perfecta para días con poco tiempo.</p>
+            </article>
+      
+            <article class="post motivacion">
+              <h3>Cómo Mantenerte Enfocado</h3>
+              <p>Estrategias para no abandonar.</p>
+            </article>
+      
+            <article class="post nutricion">
+              <h3>Suplementos: ¿Sí o No?</h3>
+              <p>Lo que debés saber antes de tomar uno.</p>
+            </article>
+          </div>
+        </div>
+      
+    </section>
+    <section>
+        <!-- Comentarios -->
+        <div class="comentarios">
+          <h3>Comentarios</h3>
+      
+          <div class="comentario">
+            <div class="avatar"></div>
+            <div class="texto">
+              <strong>Mariel</strong>
+              <p>¡Me encantó la rutina rápida! Súper útil.</p>
+            </div>
+          </div>
+      
+          <div class="comentario">
+            <div class="avatar"></div>
+            <div class="texto">
+              <strong>Martín</strong>
+              <p>Gracias por los tips de suplementos. Muy claro.</p>
+            </div>
+          </div>
+          <div class="comentario">
+            <div class="avatar"></div>
+            <div class="texto">
+              <strong>Carlos</strong>
+              <p>Buena pagina y ejercicios </p>
+            </div>
+          </div>
+        </div>
+
+        
+      </section>
+      
+      <footer>
+        <div class="footer-contenedor">
+          <!-- Botón Contacto -->
+          <div class="newsletter">
+            <h3>¡Contáctenos!</h3>
+            <a href="contacto.html" class="boton-contacto-footer">Ir al formulario</a>
+          </div>
+      
+          <!-- Redes Sociales -->
+          <div class="redes-sociales">
+            <h3>Seguinos</h3>
+            <div class="iconos">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+      
+          <!-- Mapa -->
+          <div class="mapa">
+            <h3>Encontranos</h3>
+            <iframe 
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-58.393%2C-34.603%2C-58.391%2C-34.602&layer=mapnik" 
+              width="100%" height="150" frameborder="0" 
+              style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+        <p class="copyright">
+          © 2025 PowerFit Gym. Todos los derechos reservados.
+        </p>
+      </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<script>
+    const posts = document.querySelectorAll('.post');
+  
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Si querés que se animen solo una vez
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+  
+    posts.forEach(post => observer.observe(post));
+  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const botonTema = document.getElementById("boton-tema");
+
+    // Cargar preferencia guardada
+    const temaGuardado = localStorage.getItem("tema") || "modo-claro";
+    body.classList.add(temaGuardado);
+    botonTema.textContent = temaGuardado === "modo-oscuro" ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+
+    // Cambiar tema al hacer clic
+    botonTema.addEventListener("click", () => {
+      if (body.classList.contains("modo-claro")) {
+        body.classList.replace("modo-claro", "modo-oscuro");
+        localStorage.setItem("tema", "modo-oscuro");
+        botonTema.textContent = "☀️ Modo Claro";
+      } else {
+        body.classList.replace("modo-oscuro", "modo-claro");
+        localStorage.setItem("tema", "modo-claro");
+        botonTema.textContent = "🌙 Modo Oscuro";
+      }
+    });
+  });
+</script>
+</html>

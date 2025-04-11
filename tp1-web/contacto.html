@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link rel="stylesheet" href="css/contacto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body class="modo-oscuro">
+  <header>
+    <div class="logo">
+      <a href="index.html">PoweFit</a>
+    </div>
+  
+    <nav class="navegacion">
+      <ul>
+        <li class="has-mega-menu">
+          <!-- Toggle checkbox oculto -->
+          <input type="checkbox" id="toggle-mega" class="toggle-mega">
+          <!-- Label que actúa como botón -->
+          <label for="toggle-mega" class="label-mega">Servicios</label>
+  
+          <!-- Mega menú -->
+          <div class="mega-menu">
+            <div class="menu-columna">
+              <a href="clases.html">Clases</a>
+            </div>
+            <div class="menu-columna">
+              <a href="entrenadores.html">Entrenadores</a>
+            </div>
+            <div class="menu-columna">
+              <a href="precios.html">Precios</a>
+            </div>
+            <div class="menu-columna">
+              <a href="blog.html">Blog</a>
+            </div>
+          </div>
+        </li>
+  
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+  
+      <button id="boton-tema" class="boton-tema">🌙 Modo Oscuro</button>
+    </nav>
+  </header>
+  <section class="contacto">
+    <h2>Contacto</h2>
+    <form id="formulario-contacto">
+      <fieldset>
+        <legend>Dejanos tu mensaje</legend>
+  
+        <div class="campo">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" required pattern=".{3,}" placeholder="Tu nombre completo">
+        </div>
+  
+        <div class="campo">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="tu@email.com">
+        </div>
+  
+        <div class="campo">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" required minlength="10" placeholder="Escribí tu consulta aquí..."></textarea>
+        </div>
+  
+        <div class="campo">
+          <button type="submit" class="boton-contacto">Enviar</button>
+        </div>
+      </fieldset>
+    </form>
+  
+    <div class="modal oculto" id="modal-contacto">
+      <div class="modal-contenido">
+        <h2>¡Mensaje enviado con éxito!</h2>
+        <p>Gracias por contactarnos.</p>
+        <button class="cerrar-modal" onclick="document.getElementById('modal-contacto').classList.add('oculto')">Cerrar</button>
+      </div>
+    </div>
+  </section>
+  
+      <footer>
+        <div class="footer-contenedor">
+          <!-- Botón Contacto -->
+          <div class="newsletter">
+            <h3>¡Contáctenos!</h3>
+            <a href="contacto.html" class="boton-contacto-footer">Ir al formulario</a>
+          </div>
+    
+          <!-- Redes Sociales -->
+          <div class="redes-sociales">
+            <h3>Seguinos</h3>
+            <div class="iconos">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+    
+          <!-- Mapa -->
+          <div class="mapa">
+            <h3>Encontranos</h3>
+            <iframe
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-58.393%2C-34.603%2C-58.391%2C-34.602&layer=mapnik"
+              width="100%" height="150" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy">
+            </iframe>
+          </div>
+        </div>
+        <p class="copyright">
+          © 2025 PowerFit Gym. Todos los derechos reservados.
+        </p>
+      </footer>
+    
+
+
+
+
+
+
+</body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const formulario = document.getElementById("formulario-contacto");
+    const modal = document.getElementById("modal-contacto");
+
+    formulario.addEventListener("submit", function (e) {
+      e.preventDefault(); // Evita que se recargue la página
+
+      // Mostrar el modal
+      modal.classList.remove("oculto");
+
+      // Opcional: resetear el formulario
+      formulario.reset();
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const body = document.body;
+    const botonTema = document.getElementById("boton-tema");
+
+    // Cargar preferencia guardada
+    const temaGuardado = localStorage.getItem("tema") || "modo-claro";
+    body.classList.add(temaGuardado);
+    botonTema.textContent = temaGuardado === "modo-oscuro" ? "☀️ Modo Claro" : "🌙 Modo Oscuro";
+
+    // Cambiar tema al hacer clic
+    botonTema.addEventListener("click", () => {
+      if (body.classList.contains("modo-claro")) {
+        body.classList.replace("modo-claro", "modo-oscuro");
+        localStorage.setItem("tema", "modo-oscuro");
+        botonTema.textContent = "☀️ Modo Claro";
+      } else {
+        body.classList.replace("modo-oscuro", "modo-claro");
+        localStorage.setItem("tema", "modo-claro");
+        botonTema.textContent = "🌙 Modo Oscuro";
+      }
+    });
+  });
+</script>
+
+
+
+
+</html>
